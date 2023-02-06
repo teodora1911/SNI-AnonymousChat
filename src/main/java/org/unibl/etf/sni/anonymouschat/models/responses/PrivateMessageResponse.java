@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MessageResponse implements Serializable {
+public class PrivateMessageResponse implements Serializable {
 
     private UUID uuid;
     private Integer segment;

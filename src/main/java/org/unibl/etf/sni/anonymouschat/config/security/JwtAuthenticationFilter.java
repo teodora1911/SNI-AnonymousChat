@@ -38,17 +38,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-//        CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
-//        if(csrfToken != null){
-//            Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
-//            String token = csrfToken.getToken();
-//            if (cookie == null || token != null && !token.equals(cookie.getValue())) {
-//                cookie = new Cookie("XSRF-TOKEN", token);
-//                cookie.setPath("/");
-//                response.addCookie(cookie);
-//            }
-//        }
-
         final String token = authorizationHeader.replace(AuthorizationHeaderPrefix, "");
         try{
             JwtUser jwtUser = JwtUtils.getInstance().extractUserDetailsFrom(token);

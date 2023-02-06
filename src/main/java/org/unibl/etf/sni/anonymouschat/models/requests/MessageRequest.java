@@ -18,17 +18,17 @@ import java.util.UUID;
 public class MessageRequest implements Serializable {
 
     @NotNull
-    private UUID uuid;
+    private UUID id;
     @NotNull
     @Min(0)
     private Integer segmentId;
     @NotNull
     private Integer segmentsNumber;
     @NotNull
-    private Integer senderId;
+    private String sender;
     @NotNull
     @NotBlank
-    private String receiverUsername;
+    private String receiver;
     @NotBlank
     @NotNull
     private String content;

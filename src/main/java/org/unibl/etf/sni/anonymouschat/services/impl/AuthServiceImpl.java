@@ -1,6 +1,5 @@
 package org.unibl.etf.sni.anonymouschat.services.impl;
 
-import io.jsonwebtoken.Claims;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
@@ -10,12 +9,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.unibl.etf.sni.anonymouschat.models.dtos.JwtUser;
 import org.unibl.etf.sni.anonymouschat.models.entities.UserEntity;
-import org.unibl.etf.sni.anonymouschat.models.enums.Role;
 import org.unibl.etf.sni.anonymouschat.models.requests.LoginRequest;
-import org.unibl.etf.sni.anonymouschat.models.requests.LogoutRequest;
-import org.unibl.etf.sni.anonymouschat.models.requests.RefreshTokenRequest;
 import org.unibl.etf.sni.anonymouschat.models.responses.LoginResponse;
-import org.unibl.etf.sni.anonymouschat.models.responses.RefreshTokenResponse;
 import org.unibl.etf.sni.anonymouschat.repos.UserEntityRepository;
 import org.unibl.etf.sni.anonymouschat.services.AuthService;
 import org.unibl.etf.sni.anonymouschat.utils.JwtUtils;
