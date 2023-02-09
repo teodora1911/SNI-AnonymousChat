@@ -8,6 +8,7 @@ import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketTransportRegistration;
 import org.unibl.etf.sni.anonymouschat.repos.ActiveParticipantsRepository;
 
 @Configuration
@@ -39,7 +40,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry){
         registry.addEndpoint(WS)
                // .addInterceptors(handshakeInterceptor())
-                .setAllowedOriginPatterns("http://localhost:4200")
+                //.setAllowedOriginPatterns("*")
+                .setAllowedOriginPatterns("https://snichat.com:4200/")
                 .withSockJS();
     }
 
@@ -51,13 +53,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         //registry.setUserDestinationPrefix(USER);
     }
 
-//    @Override
-//    public void configureWebSocketTransport(WebSocketTransportRegistration registration) {
-//        registration.setMessageSizeLimit(2000000000); // default : 64 * 1024
-//        registration.setSendTimeLimit(20 * 10000); // default : 10 * 10000
-//        registration.setSendBufferSizeLimit(30 * 512 * 1024); // default : 512 * 1024
-//        registration.setTimeToFirstMessage(99999); // Time
-//    }
+    @Override
+    public void configureWebSocketTransport(WebSocketTransportRegistration registration) {
+        registration.setMessageSizeLimit(500 * 1024);
+        registration.setSendTimeLimit(20 * 10000);
+        registration.setSendBufferSizeLimit(1024 * 1024);
+    }
 
     @Override
     public void configureClientInboundChannel(ChannelRegistration registration) {

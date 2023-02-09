@@ -1,4 +1,4 @@
-package org.unibl.etf.sni.anonymouschat.models.requests;
+package org.unibl.etf.sni.anonymouschat.models.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SimpleMessageRequest {
+public class Message {
+
+    private String sender;
     private String receiver;
-    private String content;
+    private String payload;
 }

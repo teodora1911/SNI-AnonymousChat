@@ -13,4 +13,6 @@ public interface UserEntityRepository extends JpaRepository<UserEntity, Integer>
 
     @Query("select u.username from UserEntity u where u.id= :id")
     String getUsernameById(@Param("id") Integer id);
+//    @Query("select u.publicKeyString from UserEntity u where u.username= :username")
+//    String getPublicKeyByUsername(@Param("username") String username);
 }

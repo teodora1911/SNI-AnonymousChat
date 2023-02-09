@@ -32,8 +32,8 @@ public class UserEntity {
     @Column(name = "surname", nullable = false)
     private String surname;
     @Basic
-    @Column(name = "certificate", nullable = false)
-    private String certificateFileLocation;
+    @Column(name = "pubkey", nullable = false)
+    private String publicKeyString;
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "ENUM('USER')")
     private Role role;
